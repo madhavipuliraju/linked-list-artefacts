@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Index/Dashboard</title>
+<!-- 2019-08-22 Thu 15:48 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="VLEAD" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../style/css/worg-style.css" />
+<link rel="stylesheet" type="text/css" href="../style/css/override.css" />
+<link rel="icon" type="image/png" href="../style/img/favicon/popl.png" />
+<script type="text/javascript" src="../style/js/org-info.js">
+/**
+ *
+ * @source: ../style/js/org-info.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in ../style/js/org-info.js.
+ *
+ * Copyright (C) 2012-2013 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in ../style/js/org-info.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "1");
+org_html_manager.set("LINK_HOME", "../index.html");
+org_html_manager.set("LINK_UP", "../index.html");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="../index.html"> UP </a>
+ |
+ <a accesskey="H" href="../index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">Index/Dashboard</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Introduction:</a></li>
+<li><a href="#sec-2">2. Scope of the project:</a></li>
+<li><a href="#sec-3">3. Members</a></li>
+<li><a href="#sec-4">4. Running Status</a></li>
+<li><a href="#sec-5">5. Assumptions</a></li>
+<li><a href="#sec-6">6. Documents</a></li>
+<li><a href="#sec-7">7. StakeHolders</a></li>
+<li><a href="#sec-8">8. Value Added by our project</a></li>
+<li><a href="#sec-9">9. Risks and Challenges</a></li>
+<li><a href="#sec-10">10. Project Closure</a>
+<ul>
+<li><a href="#sec-10-1">10.1. User Feedback</a></li>
+<li><a href="#sec-10-2">10.2. Learnings</a></li>
+<li><a href="#sec-10-3">10.3. Experience</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Introduction:</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This experiment will introduce learner to basic concepts of linked
+lists. We'll cover different types of linked lists namely singly
+linked lists,doubly linked lists and circular linked lists. The
+experiment will not just teach new concept,it'll assess user's
+understanding. Experiment will consist of learning modules as well as
+quiz.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Scope of the project:</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+This experiment will be very essential to students as it will
+introduce them to very fundamental and important topics of data
+structures course. This will enable students to implement stacks,
+queues, doubly ended queues, binary trees, etc. Proper understanding
+of linked lists will help students to solve coding problems and to
+implement various algorithms easily.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Members</h2>
+<div class="outline-text-2" id="text-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left"><b>Names</b></th>
+<th scope="col" class="left">Sumaid Syed</th>
+<th scope="col" class="left">Swapnil Pakhare</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><b>Year of Study</b></td>
+<td class="left">1st year Btech IIIT-H</td>
+<td class="left">2nd year Btech IIIT-H</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left"><b>Phone-No</b></td>
+<td class="left">8669564194</td>
+<td class="left">6361975493</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left"><b>Email-ID</b></td>
+<td class="left">sumaidsyed@gmail.com</td>
+<td class="left">swapnil.pakhare@students.iiit.ac.in</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left"><b>gitlab handles</b></td>
+<td class="left">Sumaid</td>
+<td class="left">swap-pakhare</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left"><b>github handles</b></td>
+<td class="left">Sumaid</td>
+<td class="left">swap-pakhare</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="left"><b>worklog link</b></td>
+<td class="left"><a href="https://gitlab.com/vlead-projects/experiments/work-logs/blob/master/sumaid/work-log.org">Work-Log</a></td>
+<td class="left"><a href="https://gitlab.com/vlead-projects/experiments/work-logs/blob/master/swapnil/worklog.org">Work-Log</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Running Status</h2>
+<div class="outline-text-2" id="text-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="right" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="right"><b>SNo.</b></th>
+<th scope="col" class="left"><b>Purpose</b></th>
+<th scope="col" class="left"><b>Start Date</b></th>
+<th scope="col" class="left"><b>End Date</b></th>
+<th scope="col" class="left"><b>Remarks</b></th>
+<th scope="col" class="left"><b>Status</b></th>
+<th scope="col" class="left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right">1</td>
+<td class="left"><a href="https://gitlab.com/vlead-projects/experiments/linkedlists/LinkedList/milestones/1"> Developing General Idea of the experiment </a> -A1</td>
+<td class="left">14th May,2018</td>
+<td class="left">20th May,2018</td>
+<td class="left">&#xa0;</td>
+<td class="left">Running</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="right">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="right">2</td>
+<td class="left"><a href="https://gitlab.com/vlead-projects/experiments/linkedlists/linkedlist/milestones/2"> Devloping Structured Story Board of the experiment</a> -A2</td>
+<td class="left">22nd May,2018</td>
+<td class="left">25th May,2018</td>
+<td class="left">&#xa0;</td>
+<td class="left">Running</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="right">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Assumptions</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+<i>User's knowledge assumptions</i> 
+</p>
+<ul class="org-ul">
+<li>Mathematics,English
+</li>
+<li>Arrays,Structures,Pointers,Basic Complexity Analysis,Memory Representation,Linked List Basics
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Documents</h2>
+<div class="outline-text-2" id="text-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="right" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="right"><b>SNo.</b></th>
+<th scope="col" class="left"><b>Purpose</b></th>
+<th scope="col" class="left"><b>Link</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right">1</td>
+<td class="left">Requirements</td>
+<td class="left"><a href="./requirements/index.html">req</a></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="right">2</td>
+<td class="left">Realization Plan</td>
+<td class="left"><a href="./realization-plan/concrete.html">rlz-plan</a></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="right">3</td>
+<td class="left">Experiment structure</td>
+<td class="left"><a href="./exp-cnt/concrete.html">exp-plan</a></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="right">4</td>
+<td class="left">Story Board</td>
+<td class="left"><a href="./story-board/concrete.html">story-board</a></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="right">5</td>
+<td class="left">Experiences</td>
+<td class="left"><a href="./docs/experiences.html">experiences</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> StakeHolders</h2>
+<div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>College and School Students
+</li>
+<li>MHRD
+</li>
+<li>Teachers
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Value Added by our project</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>It would be beneficial for 1st and 2nd year engineering students as Data Structures and Algorithms are usually thought in these years of study.
+</li>
+<li>Highly beneficial for tier 2 and tier 3 college students who can
+</li>
+<li>use this to learn and understand the concept of linked lists.
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> Risks and Challenges</h2>
+</div>
+
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> Project Closure</h2>
+<div class="outline-text-2" id="text-10">
+</div><div id="outline-container-sec-10-1" class="outline-3">
+<h3 id="sec-10-1"><span class="section-number-3">10.1</span> User Feedback</h3>
+</div>
+
+<div id="outline-container-sec-10-2" class="outline-3">
+<h3 id="sec-10-2"><span class="section-number-3">10.2</span> Learnings</h3>
+</div>
+
+<div id="outline-container-sec-10-3" class="outline-3">
+<h3 id="sec-10-3"><span class="section-number-3">10.3</span> Experience</h3>
+<div class="outline-text-3" id="text-10-3">
+<ul class="org-ul">
+<li><a href="./docs/experiences.html">experiences</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">[2018-05-16 Wed]</span></span></p>
+<p class="author">Author: VLEAD</p>
+<p class="date">Created: 2019-08-22 Thu 15:48</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

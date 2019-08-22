@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Linked List Library</title>
+<!-- 2019-08-22 Thu 15:48 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Sumaid and Swapnil" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Linked List Library</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Introduction</a>
+<ul>
+<li><a href="#sec-1-1">1.1. Insertion</a></li>
+<li><a href="#sec-1-2">1.2. Search</a></li>
+<li><a href="#sec-1-3">1.3. Delete</a></li>
+<li><a href="#sec-1-4">1.4. Display Linked List</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. Method names for each operation</a></li>
+<li><a href="#sec-3">3. Node Constructor</a></li>
+<li><a href="#sec-4">4. Head of Linked List</a></li>
+<li><a href="#sec-5">5. Insertion at Head</a></li>
+<li><a href="#sec-6">6. Insertion at Tail</a></li>
+<li><a href="#sec-7">7. Insert after a given node</a></li>
+<li><a href="#sec-8">8. Search</a></li>
+<li><a href="#sec-9">9. Delete</a></li>
+<li><a href="#sec-10">10. Display</a></li>
+<li><a href="#sec-11">11. Testing</a></li>
+<li><a href="#sec-12">12. Tangling</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Here is the javascript implementation of singly linked list with
+following operations:
+</p>
+</div>
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Insertion</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>Insertion at head   
+</li>
+<li>Insertion at tail
+</li>
+<li>Insertion after a given previous node
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Search</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Given a key search for it's occurence throughout the linked list.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Delete</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>Delete the first occurence of a given key in linked list
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Display Linked List</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>The linked list will be displayed from head to tail
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Method names for each operation</h2>
+<div class="outline-text-2" id="text-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left"><b>Operation</b></th>
+<th scope="col" class="left"><b>Function Name</b></th>
+<th scope="col" class="left"><b>Parameters</b></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Insertion at head</td>
+<td class="left">insert_head()</td>
+<td class="left">Data</td>
+</tr>
+
+<tr>
+<td class="left">Insertion at tail</td>
+<td class="left">insert_tail()</td>
+<td class="left">Data</td>
+</tr>
+
+<tr>
+<td class="left">Insertion after a node</td>
+<td class="left">insert_after()</td>
+<td class="left">previous node, data</td>
+</tr>
+
+<tr>
+<td class="left">Search</td>
+<td class="left">search()</td>
+<td class="left">Key</td>
+</tr>
+
+<tr>
+<td class="left">Delete</td>
+<td class="left">remove()</td>
+<td class="left">Key</td>
+</tr>
+
+<tr>
+<td class="left">Display Linked List</td>
+<td class="left">display_list()</td>
+<td class="left">-</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Node Constructor</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+ Function <code>node()</code> acts as constructor of a single node. Any instance
+of node can be created by using operator new with <code>node()</code> and
+supplying data to be stored in node as parameter.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-javascript" id="constructor_node">            <span style="font-weight: bold;">function</span> <span style="font-weight: bold;">node</span>(<span style="font-weight: bold; font-style: italic;">val</span>) {
+            <span style="font-weight: bold; text-decoration: underline;">this</span>.val = val;
+            <span style="font-weight: bold; text-decoration: underline;">this</span>.next = <span style="font-weight: bold; text-decoration: underline;">null</span>;
+        };
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Head of Linked List</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+The head of linked list is declared and intialised to null.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-javascript" id="head">            <span style="font-weight: bold; text-decoration: underline;">this</span>.head = <span style="font-weight: bold; text-decoration: underline;">null</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Insertion at Head</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+
+<pre class="src src-javascript" id="insert_head">            <span style="font-weight: bold; text-decoration: underline;">this</span>.insert_head = <span style="font-weight: bold;">function</span>(<span style="font-weight: bold; font-style: italic;">val</span>) {
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">newnode</span> = <span style="font-weight: bold;">new</span> <span style="font-weight: bold; text-decoration: underline;">node</span>(val); 
+                newnode.next = <span style="font-weight: bold; text-decoration: underline;">this</span>.head;
+                <span style="font-weight: bold; text-decoration: underline;">this</span>.head = newnode;
+          }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Insertion at Tail</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+
+<pre class="src src-javascript" id="insert_tail">            <span style="font-weight: bold; text-decoration: underline;">this</span>.insert_tail = <span style="font-weight: bold;">function</span>(<span style="font-weight: bold; font-style: italic;">val</span>) {
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">newnode</span> = <span style="font-weight: bold;">new</span> <span style="font-weight: bold; text-decoration: underline;">node</span>(val), 
+                temp = <span style="font-weight: bold; text-decoration: underline;">this</span>.head;
+            
+            <span style="font-weight: bold;">if</span>(!temp) 
+                <span style="font-weight: bold; text-decoration: underline;">this</span>.head = newnode;
+            
+            <span style="font-weight: bold;">while</span>(temp.next) 
+                temp = temp.next;
+            
+            temp.next = newnode;
+          }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Insert after a given node</h2>
+<div class="outline-text-2" id="text-7">
+<div class="org-src-container">
+
+<pre class="src src-javascript" id="insert_after">            <span style="font-weight: bold; text-decoration: underline;">this</span>.insert_after = <span style="font-weight: bold;">function</span>(<span style="font-weight: bold; font-style: italic;">prevnode</span>,<span style="font-weight: bold; font-style: italic;">val</span>) {
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">newnode</span> = <span style="font-weight: bold;">new</span> <span style="font-weight: bold; text-decoration: underline;">node</span>(val);
+                newnode.next = prevnode.next;
+                prevnode.next = newnode;
+           }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Search</h2>
+<div class="outline-text-2" id="text-8">
+<div class="org-src-container">
+
+<pre class="src src-javascript" id="search">            <span style="font-weight: bold; text-decoration: underline;">this</span>.search = <span style="font-weight: bold;">function</span>(<span style="font-weight: bold; font-style: italic;">val</span>) {
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">temp</span> = <span style="font-weight: bold; text-decoration: underline;">this</span>.head; 
+            <span style="font-weight: bold;">while</span>(temp) {
+                <span style="font-weight: bold;">if</span> (temp.val==val)
+                {
+                   console.log(<span style="font-style: italic;">'The key is there in linked list'</span>);      
+                   <span style="font-weight: bold;">return</span> temp;
+                }
+                temp = temp.next;
+            }
+            console.log(<span style="font-style: italic;">'The key is not there in linked list'</span>);         
+            <span style="font-weight: bold;">return</span> temp;
+          }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> Delete</h2>
+<div class="outline-text-2" id="text-9">
+<div class="org-src-container">
+
+<pre class="src src-javascript" id="delete">            <span style="font-weight: bold; text-decoration: underline;">this</span>.remove = <span style="font-weight: bold;">function</span>(<span style="font-weight: bold; font-style: italic;">val</span>) {
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">temp</span> = <span style="font-weight: bold; text-decoration: underline;">this</span>.head; 
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">flag</span> = 0;
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">prev</span> = <span style="font-weight: bold; text-decoration: underline;">null</span>;
+            <span style="font-weight: bold;">if</span> (temp != <span style="font-weight: bold; text-decoration: underline;">null</span> &amp;&amp; temp.val==val)
+            {
+                <span style="font-weight: bold; text-decoration: underline;">this</span>.head = temp.next;
+                flag = 1;
+                console.log(<span style="font-style: italic;">'The key is deleted'</span>);
+                <span style="font-weight: bold;">return</span> flag;
+            }
+
+            <span style="font-weight: bold;">while</span> (temp != <span style="font-weight: bold; text-decoration: underline;">null</span> &amp;&amp; temp.val != val)
+            {
+                prev = temp;
+                temp = temp.next;
+            }
+
+            <span style="font-weight: bold;">if</span> (temp == <span style="font-weight: bold; text-decoration: underline;">null</span>)
+            {
+                console.log(<span style="font-style: italic;">'The key is not there in linked list'</span>);
+                <span style="font-weight: bold;">return</span> flag;
+            }
+            prev.next = temp.next;
+            flag = 1;
+            console.log(<span style="font-style: italic;">'The key is deleted'</span>);
+            <span style="font-weight: bold;">return</span> flag;
+          }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> Display</h2>
+<div class="outline-text-2" id="text-10">
+<div class="org-src-container">
+
+<pre class="src src-javascript" id="display">            <span style="font-weight: bold; text-decoration: underline;">this</span>.display_list = <span style="font-weight: bold;">function</span>() {
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">temp</span> = <span style="font-weight: bold; text-decoration: underline;">this</span>.head; 
+                <span style="font-weight: bold;">while</span> (temp != <span style="font-weight: bold; text-decoration: underline;">null</span>)
+                {
+                        console.log(temp.val)
+                        temp = temp.next;
+                }
+          }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11"><span class="section-number-2">11</span> Testing</h2>
+<div class="outline-text-2" id="text-11">
+<div class="org-src-container">
+
+<pre class="src src-javascript" id="test">list = <span style="font-weight: bold;">new</span> <span style="font-weight: bold; text-decoration: underline;">singlylinkedlist</span>();
+list.insert_head(5);
+list.insert_head(3);
+list.insert_tail(7);
+list.insert_head(11);
+list.remove(7);
+list.display_list();
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12"><span class="section-number-2">12</span> Tangling</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+ Function <code>singlylinkedlist()</code> acts as constructor of the Singly
+Linked List library. Any instance of singly linked list can be created
+by using operator new with <code>singlylinkedlist()</code>
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-javascript"><span style="font-weight: bold;">function</span> <span style="font-weight: bold;">singlylinkedlist</span>() {
+            <span style="font-weight: bold;">function</span> <span style="font-weight: bold;">node</span>(<span style="font-weight: bold; font-style: italic;">val</span>) {
+            <span style="font-weight: bold; text-decoration: underline;">this</span>.val = val;
+            <span style="font-weight: bold; text-decoration: underline;">this</span>.next = <span style="font-weight: bold; text-decoration: underline;">null</span>;
+        };
+            <span style="font-weight: bold; text-decoration: underline;">this</span>.head = <span style="font-weight: bold; text-decoration: underline;">null</span>;
+            <span style="font-weight: bold; text-decoration: underline;">this</span>.insert_head = <span style="font-weight: bold;">function</span>(<span style="font-weight: bold; font-style: italic;">val</span>) {
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">newnode</span> = <span style="font-weight: bold;">new</span> <span style="font-weight: bold; text-decoration: underline;">node</span>(val); 
+                newnode.next = <span style="font-weight: bold; text-decoration: underline;">this</span>.head;
+                <span style="font-weight: bold; text-decoration: underline;">this</span>.head = newnode;
+          }
+            <span style="font-weight: bold; text-decoration: underline;">this</span>.insert_tail = <span style="font-weight: bold;">function</span>(<span style="font-weight: bold; font-style: italic;">val</span>) {
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">newnode</span> = <span style="font-weight: bold;">new</span> <span style="font-weight: bold; text-decoration: underline;">node</span>(val), 
+                temp = <span style="font-weight: bold; text-decoration: underline;">this</span>.head;
+            
+            <span style="font-weight: bold;">if</span>(!temp) 
+                <span style="font-weight: bold; text-decoration: underline;">this</span>.head = newnode;
+            
+            <span style="font-weight: bold;">while</span>(temp.next) 
+                temp = temp.next;
+            
+            temp.next = newnode;
+          }
+            <span style="font-weight: bold; text-decoration: underline;">this</span>.insert_after = <span style="font-weight: bold;">function</span>(<span style="font-weight: bold; font-style: italic;">prevnode</span>,<span style="font-weight: bold; font-style: italic;">val</span>) {
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">newnode</span> = <span style="font-weight: bold;">new</span> <span style="font-weight: bold; text-decoration: underline;">node</span>(val);
+                newnode.next = prevnode.next;
+                prevnode.next = newnode;
+           }
+            <span style="font-weight: bold; text-decoration: underline;">this</span>.search = <span style="font-weight: bold;">function</span>(<span style="font-weight: bold; font-style: italic;">val</span>) {
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">temp</span> = <span style="font-weight: bold; text-decoration: underline;">this</span>.head; 
+            <span style="font-weight: bold;">while</span>(temp) {
+                <span style="font-weight: bold;">if</span> (temp.val==val)
+                {
+                   console.log(<span style="font-style: italic;">'The key is there in linked list'</span>);      
+                   <span style="font-weight: bold;">return</span> temp;
+                }
+                temp = temp.next;
+            }
+            console.log(<span style="font-style: italic;">'The key is not there in linked list'</span>);         
+            <span style="font-weight: bold;">return</span> temp;
+          }    
+            <span style="font-weight: bold; text-decoration: underline;">this</span>.remove = <span style="font-weight: bold;">function</span>(<span style="font-weight: bold; font-style: italic;">val</span>) {
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">temp</span> = <span style="font-weight: bold; text-decoration: underline;">this</span>.head; 
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">flag</span> = 0;
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">prev</span> = <span style="font-weight: bold; text-decoration: underline;">null</span>;
+            <span style="font-weight: bold;">if</span> (temp != <span style="font-weight: bold; text-decoration: underline;">null</span> &amp;&amp; temp.val==val)
+            {
+                <span style="font-weight: bold; text-decoration: underline;">this</span>.head = temp.next;
+                flag = 1;
+                console.log(<span style="font-style: italic;">'The key is deleted'</span>);
+                <span style="font-weight: bold;">return</span> flag;
+            }
+
+            <span style="font-weight: bold;">while</span> (temp != <span style="font-weight: bold; text-decoration: underline;">null</span> &amp;&amp; temp.val != val)
+            {
+                prev = temp;
+                temp = temp.next;
+            }
+
+            <span style="font-weight: bold;">if</span> (temp == <span style="font-weight: bold; text-decoration: underline;">null</span>)
+            {
+                console.log(<span style="font-style: italic;">'The key is not there in linked list'</span>);
+                <span style="font-weight: bold;">return</span> flag;
+            }
+            prev.next = temp.next;
+            flag = 1;
+            console.log(<span style="font-style: italic;">'The key is deleted'</span>);
+            <span style="font-weight: bold;">return</span> flag;
+          }
+            <span style="font-weight: bold; text-decoration: underline;">this</span>.display_list = <span style="font-weight: bold;">function</span>() {
+            <span style="font-weight: bold;">var</span> <span style="font-weight: bold; font-style: italic;">temp</span> = <span style="font-weight: bold; text-decoration: underline;">this</span>.head; 
+                <span style="font-weight: bold;">while</span> (temp != <span style="font-weight: bold; text-decoration: underline;">null</span>)
+                {
+                        console.log(temp.val)
+                        temp = temp.next;
+                }
+          }
+
+}
+list = <span style="font-weight: bold;">new</span> <span style="font-weight: bold; text-decoration: underline;">singlylinkedlist</span>();
+list.insert_head(5);
+list.insert_head(3);
+list.insert_tail(7);
+list.insert_head(11);
+list.remove(7);
+list.display_list();
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">[2018-05-31 Thu]</span></span></p>
+<p class="author">Author: Sumaid and Swapnil</p>
+<p class="date">Created: 2019-08-22 Thu 15:48</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
